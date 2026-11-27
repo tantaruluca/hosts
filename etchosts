@@ -11,3 +11,5 @@ do
 		verifica_ip "$b" "$a" 8.8.8.8		
 	fi
 done
+
+echo "Salut sunt Raul! ( Hello world!)"
