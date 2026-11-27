@@ -1,8 +1,13 @@
+verifica_ip() 
+{
+        nslookup "$1" "$3" | grep "$2" > /dev/null || echo "BOGUS IP for $1 in /etc/hosts!"
+}
+
 cat /etc/hosts | while read a b c
 do 
 	if [ -n "$a" ] && [ "${a:0:1}" != "#" ]
 	then
 		echo "$b ($a)"
-		nslookup "$b" 8.8.8.8 | grep "$a" > /dev/null || echo "BOGUS IP for $b in /etc/hosts!"
+		verifica_ip "$b" "$a" 8.8.8.8		
 	fi
 done
